@@ -11,6 +11,7 @@ label_encoders = joblib.load('label_encoders.pkl')
 @app.route('/predict-credit-scrolling', methods=['POST'])
 def predict():
     data = request.get_json()
+    print(data)
     input_data = pd.DataFrame([data])
     input_data['Gender'] = label_encoders['Gender'].transform(input_data['Gender'])
     input_data['Marital Status'] = label_encoders['Marital Status'].transform(input_data['Marital Status'])
@@ -19,6 +20,6 @@ def predict():
     prediction_label = label_encoders['Credit Score'].inverse_transform(prediction)
     print(prediction_label)
     
-    return jsonify({'Credit Score': prediction_label[0]})
+    return jsonify({'creditScore': prediction_label[0]})
 if __name__ == '__main__':
     app.run()
