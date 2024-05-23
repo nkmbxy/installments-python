@@ -10,7 +10,7 @@ data = data.drop(columns=['Education', 'Home Ownership'])
 
 
 label_encoders = {}
-categorical_columns = ['Gender', 'Marital Status', 'Credit Score']
+categorical_columns = [ 'Marital Status', 'Credit Score']
 
 for column in categorical_columns:
     le = LabelEncoder()

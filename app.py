@@ -13,7 +13,6 @@ def predict():
     data = request.get_json()
     print(data)
     input_data = pd.DataFrame([data])
-    input_data['Gender'] = label_encoders['Gender'].transform(input_data['Gender'])
     input_data['Marital Status'] = label_encoders['Marital Status'].transform(input_data['Marital Status'])
     input_data = scaler.transform(input_data)
     prediction = knn_model.predict(input_data)
