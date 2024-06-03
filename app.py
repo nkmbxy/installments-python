@@ -14,7 +14,6 @@ def predict():
     print(data)
     input_data = pd.DataFrame([data])
 
-    # Transform 'Marital Status' column only
     input_data['Marital Status'] = label_encoders['Marital Status'].transform(input_data['Marital Status'])
     input_data = scaler.transform(input_data)
 

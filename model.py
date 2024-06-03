@@ -6,7 +6,6 @@ import joblib
 
 data = pd.read_csv('Credit_Score_Classification_Dataset.csv')
 
-# Drop unnecessary columns including 'Gender'
 data = data.drop(columns=['Education', 'Home Ownership', 'Gender'])
 
 label_encoders = {}
